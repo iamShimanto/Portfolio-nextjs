@@ -21,6 +21,7 @@ const Navbar = () => {
             width={50}
             height={50}
             className="rounded-full"
+            alt="logo"
           />
           <h3 className="text-white text-xl font-bold uppercase">Shimanto</h3>
         </div>

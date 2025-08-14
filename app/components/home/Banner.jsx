@@ -51,6 +51,7 @@ const Banner = () => {
                 width={500}
                 height={400}
                 className="scale-110"
+                alt="main-iamge"
               />
             </div>
           </div>
