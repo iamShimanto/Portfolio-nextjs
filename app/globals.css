@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 2rem;
+}
+
+@theme {
+  --color-brand: #ff014f;
+  --color-primary: #c4cfde;
+  --color-secondary: #878e99;
+}
+
+body {
+  background-color: #212428 !important;
+}
+
+.commonBtn {
+  display: inline-block;
+}
+.commonBtn:hover {
+  transform: translateY(-5px);
+}
+
+.card {
+  background: linear-gradient(145deg, #1e2024, #23272b);
+  box-shadow: 10px 10px 19px #1c1e22, -10px -10px 19px #262a2e;
+}
+.card:hover {
+  background: linear-gradient(to right, #0000000f 100%, #00000004 100%);
+}
