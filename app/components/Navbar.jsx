@@ -6,7 +6,7 @@ import CommonBtn from "./utils/CommonBtn";
 import { FaBarsStaggered } from "react-icons/fa6";
 
 const Navbar = () => {
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
 
   const handleClick = () => {
     setShow(!show);
