@@ -11,6 +11,7 @@ const Navbar = () => {
   const handleClick = () => {
     setShow(!show);
   };
+  console.log("issue")
 
   return (
     <>
