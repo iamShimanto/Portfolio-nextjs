@@ -14,7 +14,9 @@
 body {
   background-color: #212428 !important;
 }
-
+html {
+  scroll-behavior: smooth !important;
+}
 .commonBtn {
   display: inline-block;
 }

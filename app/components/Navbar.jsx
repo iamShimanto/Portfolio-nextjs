@@ -14,8 +14,8 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="px-11.25 py-4.5 flex items-center justify-between shadow-2xl sticky top-0">
-        <div className="flex items-center gap-1.5">
+      <nav className="px-11.25 py-4.5 flex items-center justify-between shadow-2xl bg-[#212428] sticky top-0 z-50">
+        <Link href={"/"} className="flex items-center gap-1.5">
           <Image
             src="/images/main.png"
             width={50}
@@ -24,23 +24,23 @@ const Navbar = () => {
             alt="logo"
           />
           <h3 className="text-white text-xl font-bold uppercase">Shimanto</h3>
-        </div>
+        </Link>
         <div>
           <ul className="lg:flex items-center gap-7.5 lg:gap-5 xl:gap-7.5 uppercase text-base font-medium lg:font-normal xl:font-medium text-primary hidden">
             <li className="hover:text-brand duration-300">
-              <Link href="/">Iam</Link>
+              <Link href="#iam">Iam</Link>
             </li>
             <li className="hover:text-brand duration-300">
-              <Link href="/">My Experience</Link>
+              <Link href="#features">My Experience</Link>
+            </li>
+            <li className="hover:text-brand duration-300">
+              <Link href="#portfolio">Portfolio</Link>
             </li>
             <li className="hover:text-brand duration-300">
               <Link href="/">Education</Link>
             </li>
             <li className="hover:text-brand duration-300">
               <Link href="/">Resume</Link>
-            </li>
-            <li className="hover:text-brand duration-300">
-              <Link href="/">Portfolio</Link>
             </li>
             <li className="hover:text-brand duration-300">
               <Link href="/">Blog</Link>
