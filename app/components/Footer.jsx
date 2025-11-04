@@ -33,6 +33,12 @@ const Footer = () => {
       const result = await res.json();
       if (result.success === true) {
         toast.success(result.message);
+        setData({
+          fullName: "",
+          phone: "",
+          email: "",
+          message: "",
+        });
       }
     } catch (error) {
       console.log(error.message);
@@ -124,6 +130,7 @@ const Footer = () => {
                         }))
                       }
                       type="text"
+                      value={data.fullName}
                       className="w-full h-[55px] bg-[#191B1E] text-primary px-4 rounded-lg outline-none focus:ring-2 focus:ring-brand transition-all duration-200"
                     />
                   </div>
@@ -139,6 +146,7 @@ const Footer = () => {
                         }))
                       }
                       type="number"
+                      value={data.phone}
                       required
                       className="w-full h-[55px] bg-[#191B1E] text-primary px-4 rounded-lg outline-none focus:ring-2 focus:ring-brand transition-all duration-200"
                     />
@@ -157,6 +165,7 @@ const Footer = () => {
                       }))
                     }
                     type="email"
+                    value={data.email}
                     required
                     className="w-full h-[55px] bg-[#191B1E] text-primary px-4 rounded-lg outline-none focus:ring-2 focus:ring-brand transition-all duration-200"
                   />
@@ -174,11 +183,12 @@ const Footer = () => {
                       }))
                     }
                     required
+                    value={data.message}
                     className="w-full h-[235px] bg-[#191B1E] text-primary p-4 rounded-lg outline-none focus:ring-2 focus:ring-brand transition-all duration-200"
                   ></textarea>
                 </div>
 
-                <button className="mt-10 w-full py-4 flex justify-center items-center gap-2 text-brand uppercase text-sm font-medium font-poppins rounded-lg  bg-gradient-to-br from-[#1e2024] to-[#23272b] shadow-[10px_10px_19px_#1c1e22,-10px_-10px_19px_#262a2e] hover:-translate-y-2 hover:bg-black/10 transition-all duration-300">
+                <button className="mt-10 w-full cursor-pointer py-4 flex justify-center items-center gap-2 text-brand uppercase text-sm font-medium font-poppins rounded-lg  bg-gradient-to-br from-[#1e2024] to-[#23272b] shadow-[10px_10px_19px_#1c1e22,-10px_-10px_19px_#262a2e] hover:-translate-y-2 hover:bg-black/10 transition-all duration-300">
                   {loading ? (
                     <>
                       <svg
