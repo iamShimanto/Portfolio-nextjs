@@ -73,7 +73,7 @@ export default function Technology() {
           <h4 className="text-[14px] font-medium text-[var(--color-brand)] leading-[14px]">
             Technologies
           </h4>
-          <h2 className="text-[60px] font-bold text-[var(--color-primary)] leading-[72px] mt-[15px] ">
+          <h2 className="text-4xl sm:text-[60px] font-bold text-[var(--color-primary)] leading-[72px] mt-[15px] ">
             Tech Stack I Use
           </h2>
         </div>

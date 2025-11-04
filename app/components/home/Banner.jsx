@@ -22,16 +22,16 @@ const Banner = () => {
                   <h4 className="text-xl mb-5">Welcome to my world</h4>
                 </div>
 
-                <h1 className="title leading-15 text-3xl sm:text-6xl text-white ">
+                <h1 className="title leading-15 text-4xl sm:text-6xl text-white ">
                   Hi, I’m <span className="!text-brand">Shimanto</span>
                   <br />
                   <span className="header-caption" id="page-top">
-                    <span className="cd-headline clip is-full-width flex items-center gap-5 mt-4">
-                      <span className="aa text-2xl sm:text-5xl md:text-6xl">
+                    <span className="cd-headline clip is-full-width flex items-center gap-3 mt-4">
+                      <span className="aa text-3xl sm:text-5xl md:text-6xl">
                         a{" "}
                       </span>
 
-                      <span className="cd-words-wrapper text-2xl sm:text-5xl md:text-6xl">
+                      <span className="cd-words-wrapper text-3xl tracking-tighter sm:tracking-normal sm:text-5xl md:text-6xl">
                         <b className="is-visible">Developer.</b>
                         <b className="is-hidden">Professional Coder.</b>
                         <b className="is-hidden">Developer.</b>
