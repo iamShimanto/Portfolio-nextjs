@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { BiLinkExternal } from "react-icons/bi";
 import { FaFacebookF, FaGithub, FaLinkedinIn } from "react-icons/fa6";
 
 const Footer = () => {

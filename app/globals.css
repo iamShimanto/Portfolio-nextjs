@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import "tailwindcss";
 
 @utility container {
@@ -9,10 +10,13 @@
   --color-brand: #ff014f;
   --color-primary: #c4cfde;
   --color-secondary: #878e99;
+  --color-main_colo: #c4cfde;
+  --color-brand_color: #ff014f;
 }
 
 body {
   background-color: #212428 !important;
+  font-family: "Poppins", sans-serif;
 }
 html {
   scroll-behavior: smooth !important;
@@ -27,7 +31,127 @@ html {
 .card {
   background: linear-gradient(145deg, #1e2024, #23272b);
   box-shadow: 10px 10px 19px #1c1e22, -10px -10px 19px #262a2e;
+  height: fit-content;
 }
 .card:hover {
   background: linear-gradient(to right, #0000000f 100%, #00000004 100%);
+}
+
+/* h1 {
+  font-size: 60px;
+  font-weight: 700;
+  font-family: var(--montserrat);
+  color: white;
+  line-height: 75px;
+  margin: 20px 0 13px;
+}
+h1 span {
+  color: var(--brand_color);
+} */
+
+.cd-words-wrapper {
+  display: inline-block;
+  position: relative;
+  text-align: left;
+}
+
+.cd-words-wrapper b {
+  display: inline-block;
+  position: absolute;
+  white-space: nowrap;
+  left: 0;
+  top: 0;
+}
+
+.cd-words-wrapper b.is-visible {
+  position: relative;
+}
+
+.cd-words-wrapper b {
+  opacity: 0;
+}
+
+.cd-words-wrapper b.is-visible {
+  opacity: 1;
+}
+.aa {
+  color: white !important;
+  /* font-size: 50px; */
+}
+.cd-headline.clip span {
+  display: inline-block;
+  padding: 0;
+}
+.cd-words-wrapper {
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+.cd-words-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 2px;
+  height: 80%;
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-50%);
+}
+
+b {
+  opacity: 0;
+  color: white;
+  /* font-size: 50px; */
+}
+
+b.is-visible {
+  opacity: 1;
+}
+/* =============== banner sliding text part =============== */
+
+/* .banner .botton_card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+} */
+.banner .icon {
+  display: flex;
+  gap: 24px;
+}
+.banner .left_side h5 {
+  /* font-size: 14px; */
+  font-weight: 400;
+  font-family: var(--poppins);
+  color: var(--main_color);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.banner .icon a {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  background: linear-gradient(to right, #1e2024 100%, #23272b 100%);
+  box-shadow: rgba(182, 161, 161, 0.16) 0px 3px 6px,
+    rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  transition: ease-in-out 0.3s;
+  color: var(--main_color);
+  border-radius: 6px;
+}
+.banner .icon a:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(to right, #0000000f 100%, #00000004 100%);
+  color: white;
+}
+.banner .invision {
+  background: linear-gradient(to right, #1e2024 100%, #23272b 100%);
+  /* color: var(--brand_color); */
+}
+.banner .diamond {
+  color: rgb(229, 234, 91);
+}
+.figma {
+  color: rgb(219, 136, 187);
 }

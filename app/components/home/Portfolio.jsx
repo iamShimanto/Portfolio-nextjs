@@ -1,21 +1,33 @@
-"use client";
-
 import { FaArrowRight, FaRegHeart } from "react-icons/fa";
 
 const portfolioData = [
   {
-    img: "/images/todo1.png",
-    title: "ToDo_List",
-    likes: 600,
-    desc: "Fast & simple ToDo app with real-time Firebase sync",
-    link: "https://todo-app-rho-eight-49.vercel.app/",
+    img: "/images/aliairtravels.png",
+    title: "Travel Agency",
+    likes: 360,
+    desc: "Ali Air Travels & Tours Built With Nextjs and Node.js",
+    link: "https://www.aliairtravels.com",
   },
   {
     img: "/images/chatapp.jpg",
     title: "ChatApp",
     likes: 750,
     desc: "Built with React and Firebase, real-time messaging",
-    link: "https://shimantochat.vercel.app/",
+    link: "https://shimantochat.vercel.app",
+  },
+  {
+    img: "/images/joud.png",
+    title: "Perfume Shop",
+    likes: 280,
+    desc: "Joud Perfumes Built With Nextjs and Node.js",
+    link: "https://www.joudperfume.com",
+  },
+  {
+    img: "/images/todo1.png",
+    title: "ToDo_List",
+    likes: 600,
+    desc: "Fast & simple ToDo app with real-time Firebase sync",
+    link: "https://shimanto-todo.vercel.app",
   },
   {
     img: "/images/weather.jpg",
@@ -23,18 +35,6 @@ const portfolioData = [
     likes: 630,
     desc: "A responsive weather app built with React",
     link: "https://react-weather-app-shimantos-projects.vercel.app/",
-  },
-  {
-    img: "/images/portfolio-04.jpg",
-    title: "Figma",
-    likes: 360,
-    desc: "Mobile app landing design & Services",
-  },
-  {
-    img: "/images/portfolio-05.jpg",
-    title: "Web Design",
-    likes: 280,
-    desc: "Design for technology & services",
   },
   {
     img: "/images/portfolio-06.jpg",

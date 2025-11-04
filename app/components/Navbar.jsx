@@ -31,22 +31,13 @@ const Navbar = () => {
               <Link href="#iam">Iam</Link>
             </li>
             <li className="hover:text-brand duration-300">
-              <Link href="#features">My Experience</Link>
+              <Link href="#technology">My Experience</Link>
             </li>
             <li className="hover:text-brand duration-300">
               <Link href="#portfolio">Portfolio</Link>
             </li>
             <li className="hover:text-brand duration-300">
-              <Link href="/">Education</Link>
-            </li>
-            <li className="hover:text-brand duration-300">
-              <Link href="/">Resume</Link>
-            </li>
-            <li className="hover:text-brand duration-300">
-              <Link href="/">Blog</Link>
-            </li>
-            <li className="hover:text-brand duration-300">
-              <Link href="/">Contacts</Link>
+              <Link href="#contact">Contacts</Link>
             </li>
             <li>
               <CommonBtn title="hire me" />
@@ -62,25 +53,16 @@ const Navbar = () => {
           {show && (
             <ul className="flex flex-col items-center gap-7.5 lg:gap-5 xl:gap-7.5 uppercase text-base font-medium lg:font-normal xl:font-medium text-primary absolute right-0 top-15 bg-gray-600 w-60 py-10 rounded-xl">
               <li className="hover:text-brand duration-300">
-                <Link href="/">Iam</Link>
+                <Link href="#iam">Iam</Link>
               </li>
               <li className="hover:text-brand duration-300">
-                <Link href="/">My Experience</Link>
+                <Link href="#technology">My Experience</Link>
               </li>
               <li className="hover:text-brand duration-300">
-                <Link href="/">Education</Link>
+                <Link href="#portfolio">Portfolio</Link>
               </li>
               <li className="hover:text-brand duration-300">
-                <Link href="/">Resume</Link>
-              </li>
-              <li className="hover:text-brand duration-300">
-                <Link href="/">Portfolio</Link>
-              </li>
-              <li className="hover:text-brand duration-300">
-                <Link href="/">Blog</Link>
-              </li>
-              <li className="hover:text-brand duration-300">
-                <Link href="/">Contacts</Link>
+                <Link href="#contact">Contacts</Link>
               </li>
               <li className="hidden lg:block">
                 <CommonBtn title="hire me" />

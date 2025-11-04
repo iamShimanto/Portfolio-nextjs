@@ -1,5 +1,3 @@
-"use client";
-
 import {
   FaBars,
   FaBookOpen,
@@ -47,7 +45,6 @@ export default function Features() {
   return (
     <section id="features" className="mb-[100px]">
       <div className="container mx-auto px-4 border-b border-[#121415] pb-[100px]">
-        {/* Heading */}
         <div
           data-aos="fade-up"
           data-aos-delay="300"
@@ -62,7 +59,6 @@ export default function Features() {
           </h2>
         </div>
 
-        {/* Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[30px]">
           {features.map((item, i) => (
             <div
