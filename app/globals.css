@@ -37,17 +37,7 @@ html {
   background: linear-gradient(to right, #0000000f 100%, #00000004 100%);
 }
 
-/* h1 {
-  font-size: 60px;
-  font-weight: 700;
-  font-family: var(--montserrat);
-  color: white;
-  line-height: 75px;
-  margin: 20px 0 13px;
-}
-h1 span {
-  color: var(--brand_color);
-} */
+
 
 .cd-words-wrapper {
   display: inline-block;
@@ -101,7 +91,6 @@ h1 span {
 b {
   opacity: 0;
   color: white;
-  /* font-size: 50px; */
 }
 
 b.is-visible {
@@ -109,11 +98,7 @@ b.is-visible {
 }
 /* =============== banner sliding text part =============== */
 
-/* .banner .botton_card {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-} */
+
 .banner .icon {
   display: flex;
   gap: 24px;

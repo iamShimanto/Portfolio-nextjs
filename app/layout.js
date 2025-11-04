@@ -1,6 +1,7 @@
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Script from "next/script";
+import { Toaster } from "react-hot-toast";
 
 export const metadata = {
   title: "Shimanto Sarkar | Full Stack Developer",
@@ -67,6 +68,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
+        <Toaster position="top-right" reverseOrder={false} />
         <Navbar />
         {children}
         <Script

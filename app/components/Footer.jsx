@@ -1,9 +1,46 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { FaFacebookF, FaGithub, FaLinkedinIn } from "react-icons/fa6";
 
 const Footer = () => {
+  const [data, setData] = useState({
+    fullName: "",
+    phone: "",
+    email: "",
+    message: "",
+  });
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      setLoading(true);
+      const res = await fetch(
+        "https://api-shimanto-portfolio.vercel.app/api/message",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
+
+      const result = await res.json();
+      if (result.success === true) {
+        toast.success(result.message);
+      }
+    } catch (error) {
+      console.log(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div>
       <footer id="contact" className="mb-12">
@@ -73,13 +110,19 @@ const Footer = () => {
             </div>
 
             <div className="p-8 rounded-xl shadow-[10px_10px_19px_#1c1e22,-10px_-10px_19px_#262a2e] bg-transparent">
-              <form className="space-y-5">
+              <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="flex flex-col sm:flex-row gap-5">
                   <div className="flex-1">
                     <p className="uppercase text-xs tracking-wide text-primary font-medium mb-1">
                       Your Name
                     </p>
                     <input
+                      onChange={(e) =>
+                        setData((prev) => ({
+                          ...prev,
+                          fullName: e.target.value,
+                        }))
+                      }
                       type="text"
                       className="w-full h-[55px] bg-[#191B1E] text-primary px-4 rounded-lg outline-none focus:ring-2 focus:ring-brand transition-all duration-200"
                     />
@@ -89,7 +132,14 @@ const Footer = () => {
                       Phone Number
                     </p>
                     <input
-                      type="text"
+                      onChange={(e) =>
+                        setData((prev) => ({
+                          ...prev,
+                          phone: e.target.value,
+                        }))
+                      }
+                      type="number"
+                      required
                       className="w-full h-[55px] bg-[#191B1E] text-primary px-4 rounded-lg outline-none focus:ring-2 focus:ring-brand transition-all duration-200"
                     />
                   </div>
@@ -100,7 +150,14 @@ const Footer = () => {
                     Email
                   </p>
                   <input
+                    onChange={(e) =>
+                      setData((prev) => ({
+                        ...prev,
+                        email: e.target.value,
+                      }))
+                    }
                     type="email"
+                    required
                     className="w-full h-[55px] bg-[#191B1E] text-primary px-4 rounded-lg outline-none focus:ring-2 focus:ring-brand transition-all duration-200"
                   />
                 </div>
@@ -109,14 +166,48 @@ const Footer = () => {
                   <p className="uppercase text-xs tracking-wide text-primary font-medium mb-1">
                     Your Message
                   </p>
-                  <textarea className="w-full h-[235px] bg-[#191B1E] text-primary p-4 rounded-lg outline-none focus:ring-2 focus:ring-brand transition-all duration-200"></textarea>
+                  <textarea
+                    onChange={(e) =>
+                      setData((prev) => ({
+                        ...prev,
+                        message: e.target.value,
+                      }))
+                    }
+                    required
+                    className="w-full h-[235px] bg-[#191B1E] text-primary p-4 rounded-lg outline-none focus:ring-2 focus:ring-brand transition-all duration-200"
+                  ></textarea>
                 </div>
 
-                <button
-                  type="submit"
-                  className="mt-10 w-full py-4 flex justify-center items-center gap-2 text-brand uppercase text-sm font-medium font-poppins rounded-lg bg-gradient-to-br from-[#1e2024] to-[#23272b] shadow-[10px_10px_19px_#1c1e22,-10px_-10px_19px_#262a2e] hover:-translate-y-2 hover:bg-black/10 transition-all duration-300"
-                >
-                  Send Message <i className="fa-solid fa-arrow-right"></i>
+                <button className="mt-10 w-full py-4 flex justify-center items-center gap-2 text-brand uppercase text-sm font-medium font-poppins rounded-lg  bg-gradient-to-br from-[#1e2024] to-[#23272b] shadow-[10px_10px_19px_#1c1e22,-10px_-10px_19px_#262a2e] hover:-translate-y-2 hover:bg-black/10 transition-all duration-300">
+                  {loading ? (
+                    <>
+                      <svg
+                        className="w-5 h-5 animate-spin text-brand"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        ></circle>
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                        ></path>
+                      </svg>
+                      <span>Sending...</span>
+                    </>
+                  ) : (
+                    <>
+                      Send Message <i className="fa-solid fa-arrow-right"></i>
+                    </>
+                  )}
                 </button>
               </form>
             </div>
