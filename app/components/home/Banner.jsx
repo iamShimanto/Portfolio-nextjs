@@ -35,7 +35,7 @@ const Banner = () => {
                       </span>
 
                       <span className="cd-words-wrapper text-3xl tracking-tighter sm:tracking-normal sm:text-5xl md:text-6xl">
-                        <b className="is-visible">FullStack Developer.</b>
+                        <b className="is-visible">Developer.</b>
                         <b className="is-hidden">Professional Coder.</b>
                         <b className="is-hidden">Developer.</b>
                       </span>
