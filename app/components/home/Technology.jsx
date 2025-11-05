@@ -64,12 +64,7 @@ export default function Technology() {
   return (
     <section id="technology" className="mb-[100px]">
       <div className="container mx-auto px-4 border-b border-[#121415] pb-[100px]">
-        <div
-          data-aos="fade-up"
-          data-aos-delay="300"
-          data-aos-once="true"
-          className="text-left mb-10"
-        >
+        <div data-aos="fade-up" className="text-left mb-10">
           <h4 className="text-[14px] font-medium text-[var(--color-brand)] leading-[14px]">
             Technologies
           </h4>
@@ -82,9 +77,7 @@ export default function Technology() {
           {technologies.map((tech, i) => (
             <div
               key={i}
-              data-aos="fade-up"
-              data-aos-delay="200"
-              data-aos-once="true"
+              data-aos="flip-up"
               className="group relative w-full h-[300px] p-[40px] mt-[20px] bg-gradient-to-br from-[#1e2024] to-[#23272b]
               shadow-[10px_10px_19px_#1c1e22,-10px_-10px_19px_#262a2e] transition-all duration-300 ease-in-out
               hover:bg-gradient-to-r hover:from-[#0000000f] hover:to-[#00000004] hover:pt-[30px]"

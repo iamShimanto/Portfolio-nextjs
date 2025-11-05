@@ -18,11 +18,14 @@ const Banner = () => {
           <div className="flex flex-col xl:flex-row justify-between items-center gap-7.5 xl:px-10">
             <div>
               <div className="sm:p-15 duration-300 rounded-2xl">
-                <div className="text-main_colo">
+                <div data-aos="fade-up" className="text-main_colo">
                   <h4 className="text-xl mb-5">Welcome to my world</h4>
                 </div>
 
-                <h1 className="title leading-15 text-4xl sm:text-6xl text-white ">
+                <h1
+                  data-aos="fade-down"
+                  className="title leading-15 text-4xl sm:text-6xl text-white "
+                >
                   Hi, I’m <span className="!text-brand">Shimanto</span>
                   <br />
                   <span className="header-caption" id="page-top">
@@ -32,7 +35,7 @@ const Banner = () => {
                       </span>
 
                       <span className="cd-words-wrapper text-3xl tracking-tighter sm:tracking-normal sm:text-5xl md:text-6xl">
-                        <b className="is-visible">Developer.</b>
+                        <b className="is-visible">FullStack Developer.</b>
                         <b className="is-hidden">Professional Coder.</b>
                         <b className="is-hidden">Developer.</b>
                       </span>
@@ -40,14 +43,17 @@ const Banner = () => {
                   </span>
                 </h1>
 
-                <p className="text-main_colo max-w-[660px] leading-7 tracking-widest mt-10">
+                <p
+                  data-aos="zoom-in"
+                  className="text-main_colo max-w-[660px] leading-7 tracking-widest mt-10"
+                >
                   I use animation as Link third dimension by which to simplify
                   experiences and kuiding thro each and every interaction.
                   I’mnot adding motion just to spruce things up, but doing it in
                   ways that.
                 </p>
                 <div className="botton_card mt-25 text-main_colo flex flex-col items-center justify-between gap-5 md:flex-row">
-                  <div className="left_side">
+                  <div data-aos="fade-right" className="left_side">
                     <h5>find with me</h5>
                     <div className="icon">
                       <Link
@@ -70,7 +76,7 @@ const Banner = () => {
                       </Link>
                     </div>
                   </div>
-                  <div className="left_side">
+                  <div data-aos="fade-left" className="left_side">
                     <h5>best skill on</h5>
                     <div className="icon">
                       <Link href="#">
@@ -87,7 +93,10 @@ const Banner = () => {
                 </div>
               </div>
             </div>
-            <div className="card rounded-2xl h-[480px] sm:h-[650px] p-7.5 overflow-hidden">
+            <div
+              data-aos="zoom-in"
+              className="card rounded-2xl h-[480px] sm:h-[650px] p-7.5 overflow-hidden"
+            >
               <Image
                 src="/images/main.png"
                 width={500}
