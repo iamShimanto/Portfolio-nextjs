@@ -75,20 +75,20 @@ export default function Technology() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[30px]">
           {technologies.map((tech, i) => (
-            <div
-              key={i}
-              data-aos="flip-up"
-              className="group relative w-full h-[300px] p-[40px] mt-[20px] bg-gradient-to-br from-[#1e2024] to-[#23272b]
+            <div key={i} data-aos="flip-up">
+              <div
+                className="group cursor-pointer relative w-full h-[300px] p-[40px] mt-[20px] bg-gradient-to-br from-[#1e2024] to-[#23272b]
               shadow-[10px_10px_19px_#1c1e22,-10px_-10px_19px_#262a2e] transition-all duration-300 ease-in-out
               hover:bg-gradient-to-r hover:from-[#0000000f] hover:to-[#00000004] hover:pt-[30px]"
-            >
-              {tech.icon}
-              <h3 className="text-[24px] font-medium text-[var(--color-primary)] leading-[32px] mt-[27px] mb-[15px]">
-                {tech.name}
-              </h3>
-              <p className="text-[16px] font-normal text-[var(--color-primary)] leading-[28px]">
-                {tech.desc}
-              </p>
+              >
+                {tech.icon}
+                <h3 className="text-[24px] font-medium text-[var(--color-primary)] leading-[32px] mt-[27px] mb-[15px]">
+                  {tech.name}
+                </h3>
+                <p className="text-[16px] font-normal text-[var(--color-primary)] leading-[28px]">
+                  {tech.desc}
+                </p>
+              </div>
             </div>
           ))}
         </div>
