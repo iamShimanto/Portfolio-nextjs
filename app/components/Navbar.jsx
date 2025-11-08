@@ -40,7 +40,7 @@ const Navbar = () => {
               <Link href="#contact">Contacts</Link>
             </li>
             <li>
-              <CommonBtn title="hire me" />
+              <CommonBtn link="#contact" title="hire me" />
             </li>
           </ul>
         </div>
@@ -65,7 +65,7 @@ const Navbar = () => {
                 <Link href="#contact">Contacts</Link>
               </li>
               <li className="hidden lg:block">
-                <CommonBtn title="hire me" />
+                <CommonBtn link="#contact" title="hire me" />
               </li>
             </ul>
           )}
