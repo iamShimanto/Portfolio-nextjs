@@ -43,7 +43,7 @@ With a focus on **modern design, clean code,** and **interactive UI/UX**, I buil
 ## 🖼️ Portfolio
 
 🎯 **Visit my full portfolio:**  
-👉 [https://your-portfolio-link-here.com](https://your-portfolio-link-here.com)
+👉 [https://iamshimanto.vercel.app](https://iamshimanto.vercel.app)
 
 💬 I’d love your feedback — let’s connect and collaborate!
 
