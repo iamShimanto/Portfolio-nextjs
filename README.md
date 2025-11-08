@@ -32,11 +32,10 @@ With a focus on **modern design, clean code,** and **interactive UI/UX**, I buil
 | Project | Description | Tech Used |
 |----------|--------------|-----------|
 | 🌍 **[Ali Air Travels & Tours](https://www.aliairtravels.com/)** | A full-featured air travel booking website. | Next.js • Node.js • MongoDB |
-| 💬 **ChatApp** | Real-time messaging app with Firebase. | React.js • Firebase |
-| 🧴 **Joud Perfume Shop** | E-commerce perfume store. | Next.js • Node.js • MongoDB |
-| 📝 **ToDo List** | Real-time ToDo app with Firebase sync. | React.js • Firebase |
-| ☁️ **Weather App** | Responsive weather forecast app. | React.js • API Integration |
-| 🎨 **Web Design** | Modern app for tech and service showcases. | React.js • Tailwind CSS |
+| 💬 **[ChatApp](https://shimantochat.vercel.app)** | Real-time messaging app with Firebase. | React.js • Firebase |
+| 🧴 **[Joud Perfume Shop](https://www.joudperfume.com)** | E-commerce perfume store. | Next.js • Node.js • MongoDB |
+| 📝 **[ToDo List](https://shimanto-todo.vercel.app)** | Real-time ToDo app with Firebase sync. | React.js • Firebase |
+| ☁️ **[Weather App](https://react-weather-app-shimantos-projects.vercel.app/)** | Responsive weather forecast app. | React.js • API Integration |
 
 ---
 
@@ -56,10 +55,10 @@ With a focus on **modern design, clean code,** and **interactive UI/UX**, I buil
 **📧 Email:** [shimanto.dev.bd@gmail.com](mailto:shimanto.dev.bd@gmail.com)  
 
 ### 🌐 Connect With Me  
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/your-link)  
-[![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)](https://github.com/your-username)  
-[![Facebook](https://img.shields.io/badge/Facebook-1877F2?style=flat&logo=facebook&logoColor=white)](https://facebook.com/your-link)  
-[![Portfolio](https://img.shields.io/badge/Portfolio-000000?style=flat&logo=firefox&logoColor=white)](https://your-portfolio-link-here.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/iam-shimanto)  
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)](https://github.com/iamShimanto)  
+[![Facebook](https://img.shields.io/badge/Facebook-1877F2?style=flat&logo=facebook&logoColor=white)](https://www.facebook.com/iamshimanto18)  
+[![Portfolio](https://img.shields.io/badge/Portfolio-000000?style=flat&logo=firefox&logoColor=white)](https://iamshimanto.vercel.app)
 
 ---
 
