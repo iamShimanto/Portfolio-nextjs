@@ -76,14 +76,14 @@ export default function RootLayout({ children }) {
         {children}
         <Script
           async
-          src="https://www.googletagmanager.com/gtag/js?id=G-5ZK5JNK4G8"
+          src="https://www.googletagmanager.com/gtag/js?id=G-9RR7EJZNYQ"
         />
         <Script id="ga">
           {`
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-5ZK5JNK4G8');
+    gtag('config', 'G-9RR7EJZNYQ');
   `}
         </Script>
       </body>
