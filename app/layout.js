@@ -14,15 +14,18 @@ export const metadata = {
     "Portfolio",
     "Web Developer Bangladesh",
   ],
+  other: {
+    "google-site-verification": "-tvqxNUbPqTjeZD-q8IhL7_Amgf4hfoJjJ7nRxOayG8",
+  },
   openGraph: {
     title: "Shimanto Sarkar | Full Stack Developer",
     description:
       "Portfolio of Shimanto Sarkar — Full Stack Web Developer from Bangladesh.",
-    url: "https://shimanto.cloud",
+    url: "https://iamshimanto.vercel.app",
     siteName: "Shimanto.cloud",
     images: [
       {
-        url: "https://shimanto.cloud/images/main.png",
+        url: "https://iamshimanto.vercel.app/images/main.png",
         width: 1200,
         height: 630,
         alt: "Shimanto Sarkar Portfolio",
@@ -36,7 +39,7 @@ export const metadata = {
     title: "Shimanto Sarkar | Full Stack Developer",
     description:
       "Portfolio of Shimanto Sarkar — Next.js developer from Bangladesh.",
-    images: ["https://shimanto.cloud/images/main.png"],
+    images: ["https://iamshimanto.vercel.app/images/main.png"],
   },
 };
 
@@ -45,11 +48,11 @@ export default function RootLayout({ children }) {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Shimanto Sarkar",
-    url: "https://shimanto.cloud",
+    url: "https://iamshimanto.vercel.app",
     jobTitle: "Full Stack Developer",
     sameAs: [
-      "https://www.linkedin.com/in/shimantosarkar",
-      "https://github.com/shimanto-sarkar",
+      "https://www.linkedin.com/in/iam-shimanto",
+      "https://github.com/iamShimanto",
     ],
   };
   return (
