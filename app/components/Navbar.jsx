@@ -41,7 +41,7 @@ const Navbar = () => {
             </li>
             <li>
               <Link
-                href="/resume.pdf"
+                href="/Shimanto_Sarkar_Resume.pdf"
                 download="Shimanto_Sarkar_Resume.pdf"
                 className="py-3 px-3 sm:py-4.5 sm:px-9 w-fit shadow-sm shadow-slate-50 text-brand uppercase font-medium hover:bg-black hover:shadow-none commonBtn ease-in-out duration-300 rounded-lg card"
               >
@@ -72,7 +72,7 @@ const Navbar = () => {
               </li>
               <li className="hidden lg:block">
                 <Link
-                  href="/resume.pdf"
+                  href="/Shimanto_Sarkar_Resume.pdf"
                   download="Shimanto_Sarkar_Resume.pdf"
                   className="py-3 px-3 sm:py-4.5 sm:px-9 w-fit shadow-sm shadow-slate-50 text-brand uppercase font-medium hover:bg-black hover:shadow-none commonBtn ease-in-out duration-300 rounded-lg card"
                 >
