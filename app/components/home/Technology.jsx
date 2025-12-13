@@ -2,63 +2,82 @@ import {
   FaReact,
   FaNodeJs,
   FaGithub,
-  FaHtml5,
-  FaDatabase,
 } from "react-icons/fa";
 import {
   SiNextdotjs,
   SiMongodb,
   SiExpress,
   SiTailwindcss,
+  SiPostgresql,
+  SiDocker,
+  SiPrisma,
+  SiRedis,
+  SiNginx,
 } from "react-icons/si";
 
 const technologies = [
   {
-    icon: <FaReact className="text-[40px] text-[#61DBFB]" />,
-    name: "React.js",
-    desc: "Building fast and dynamic user interfaces using React components and hooks.",
-  },
-  {
-    icon: <SiNextdotjs className="text-[40px] text-white" />,
-    name: "Next.js",
-    desc: "Creating SEO-friendly and high-performance web apps with Next.js framework.",
-  },
-  {
     icon: <FaNodeJs className="text-[40px] text-[#3C873A]" />,
     name: "Node.js",
-    desc: "Server-side JavaScript development for scalable applications and APIs.",
+    desc: "Building scalable server-side applications using event-driven architecture.",
   },
   {
     icon: <SiExpress className="text-[40px] text-[#f0db4f]" />,
     name: "Express.js",
-    desc: "Minimal and flexible Node.js framework for backend REST APIs.",
+    desc: "Designing secure and performant RESTful APIs with middleware-based architecture.",
+  },
+  {
+    icon: <SiPostgresql className="text-[40px] text-[#336791]" />,
+    name: "PostgreSQL",
+    desc: "Relational database design with complex queries, indexing, and transactions.",
   },
   {
     icon: <SiMongodb className="text-[40px] text-[#4DB33D]" />,
     name: "MongoDB",
-    desc: "NoSQL database for managing and storing data efficiently.",
+    desc: "Schema-flexible NoSQL database for high-performance document-based storage.",
+  },
+  // {
+  //   icon: <SiPrisma className="text-[40px] text-[#2D3748]" />,
+  //   name: "Prisma ORM",
+  //   desc: "Type-safe database access with schema modeling and migrations.",
+  // },
+  {
+    icon: <SiRedis className="text-[40px] text-[#DC382D]" />,
+    name: "Redis",
+    desc: "In-memory data store for caching, sessions, and rate limiting.",
   },
   {
-    icon: <SiTailwindcss className="text-[40px] text-[#38BDF8]" />,
-    name: "Tailwind CSS",
-    desc: "Modern utility-first CSS framework for fast and responsive UI design.",
+    icon: <SiDocker className="text-[40px] text-[#2496ED]" />,
+    name: "Docker",
+    desc: "Containerizing applications for consistent development and production environments.",
   },
+  // {
+  //   icon: <FaReact className="text-[40px] text-[#61DBFB]" />,
+  //   name: "React.js",
+  //   desc: "Building reusable UI components and client-side application logic.",
+  // },
   {
-    icon: <FaGithub className="text-[40px] text-[#FFFFFF]" />,
+    icon: <SiNextdotjs className="text-[40px] text-white" />,
+    name: "Next.js",
+    desc: "Server-side rendering and SEO-optimized frontend architecture.",
+  },
+  // {
+  //   icon: <FaDatabase className="text-[40px] text-[#00BFA5]" />,
+  //   name: "REST APIs",
+  //   desc: "Designing versioned, secure APIs with authentication and validation.",
+  // },
+  {
+    icon: <FaGithub className="text-[40px] text-white" />,
     name: "Git & GitHub",
-    desc: "Version control and collaborative development using Git workflow.",
+    desc: "Version control, collaboration, and CI/CD workflows.",
   },
   {
-    icon: <FaHtml5 className="text-[40px] text-[#E34F26]" />,
-    name: "HTML5 & CSS3",
-    desc: "Core building blocks of modern web design with responsive layouts.",
-  },
-  {
-    icon: <FaDatabase className="text-[40px] text-[#00BFA5]" />,
-    name: "REST APIs",
-    desc: "Designing structured and secure API endpoints for client-server communication.",
+    icon: <SiNginx className="text-[40px] text-[#009639]" />,
+    name: "Nginx",
+    desc: "Reverse proxy, load balancing, and production-grade server configuration.",
   },
 ];
+
 
 export default function Technology() {
   return (

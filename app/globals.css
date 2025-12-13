@@ -141,3 +141,16 @@ b.is-visible {
 .figma {
   color: rgb(219, 136, 187);
 }
+
+.react {
+  animation: react 3s linear infinite;
+}
+
+@keyframes react {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

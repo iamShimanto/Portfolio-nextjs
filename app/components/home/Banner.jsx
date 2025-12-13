@@ -7,8 +7,10 @@ import {
   FaGithub,
   FaInvision,
   FaLinkedinIn,
+  FaReact,
   FaRegGem,
 } from "react-icons/fa6";
+import { SiDocker, SiPrisma } from "react-icons/si";
 
 const Banner = () => {
   return (
@@ -79,14 +81,14 @@ const Banner = () => {
                   <div data-aos="fade-left" className="left_side">
                     <h5>best skill on</h5>
                     <div className="icon">
-                      <Link href="#">
-                        <FaInvision className="invision" />
+                      <Link href="https://www.prisma.io/" target="_blank">
+                        <SiPrisma className="text-[24px] text-[#2D3748]" />
                       </Link>
-                      <Link href="#">
-                        <FaRegGem className="diamond" />
+                      <Link href="https://react.dev/" target="_blank">
+                        <FaReact className="text-[24px] text-[#61DBFB] react" />
                       </Link>
-                      <Link href="#">
-                        <FaFigma className="figma" />
+                      <Link href="https://www.docker.com/" target="_blank">
+                        <SiDocker className="text-[24px] text-[#2496ED]" />
                       </Link>
                     </div>
                   </div>
