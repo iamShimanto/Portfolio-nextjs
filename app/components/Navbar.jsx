@@ -12,8 +12,6 @@ const Navbar = () => {
     setShow(!show);
   };
 
-
-
   return (
     <>
       <nav className="px-11.25 py-4.5 flex items-center justify-between shadow-2xl bg-[#212428] sticky top-0 z-50">
@@ -42,7 +40,13 @@ const Navbar = () => {
               <Link href="#contact">Contacts</Link>
             </li>
             <li>
-              <CommonBtn link="#contact" title="hire me" />
+              <Link
+                href="/resume.pdf"
+                download="Shimanto_Sarkar_Resume.pdf"
+                className="py-3 px-3 sm:py-4.5 sm:px-9 w-fit shadow-sm shadow-slate-50 text-brand uppercase font-medium hover:bg-black hover:shadow-none commonBtn ease-in-out duration-300 rounded-lg card"
+              >
+                Resume
+              </Link>
             </li>
           </ul>
         </div>
@@ -67,7 +71,13 @@ const Navbar = () => {
                 <Link href="#contact">Contacts</Link>
               </li>
               <li className="hidden lg:block">
-                <CommonBtn link="#contact" title="hire me" />
+                <Link
+                  href="/resume.pdf"
+                  download="Shimanto_Sarkar_Resume.pdf"
+                  className="py-3 px-3 sm:py-4.5 sm:px-9 w-fit shadow-sm shadow-slate-50 text-brand uppercase font-medium hover:bg-black hover:shadow-none commonBtn ease-in-out duration-300 rounded-lg card"
+                >
+                  Resume
+                </Link>
               </li>
             </ul>
           )}
