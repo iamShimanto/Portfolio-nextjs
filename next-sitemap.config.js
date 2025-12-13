@@ -1,5 +1,5 @@
 module.exports = {
-  siteUrl: "https://iamshimanto.vercel.app/",
+  siteUrl: "https://shimanto.dev/",
   generateRobotsTxt: true,
   sitemapSize: 7000,
 };

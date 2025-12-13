@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://iamshimanto.vercel.app/
-
-# Sitemaps
-Sitemap: https://iamshimanto.vercel.app/sitemap.xml
