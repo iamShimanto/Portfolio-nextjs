@@ -2,6 +2,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import Script from "next/script";
 import { Toaster } from "react-hot-toast";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata = {
   metadataBase: new URL("https://shimanto.dev"),
@@ -90,6 +91,7 @@ export default function RootLayout({ children }) {
         <Toaster position="top-right" reverseOrder={false} />
         <Navbar />
         {children}
+        <Analytics />
         <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-JEVHP8E9R5"
