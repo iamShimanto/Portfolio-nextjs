@@ -100,7 +100,7 @@ const Banner = () => {
               className="card rounded-2xl h-[480px] sm:h-[650px] p-7.5 overflow-hidden"
             >
               <Image
-                src="/images/main.png"
+                src="/images/main.webp"
                 width={500}
                 height={400}
                 className="scale-110"

@@ -2,7 +2,14 @@ import { FaArrowRight, FaRegHeart } from "react-icons/fa";
 
 const portfolioData = [
   {
-    img: "/images/aliairtravels.png",
+    img: "/images/fashion.webp",
+    title: "Fashion Shop",
+    likes: 690,
+    desc: "App for Digital Fashion Shop built with NextJs & NodeJs",
+    link: "https://fashion.shimanto.dev/",
+  },
+  {
+    img: "/images/aliairtravels.webp",
     title: "Travel Agency",
     likes: 360,
     desc: "Ali Air Travels & Tours Built With Nextjs and Node.js",
@@ -16,31 +23,25 @@ const portfolioData = [
     link: "https://shimantochat.vercel.app",
   },
   {
-    img: "/images/joud.png",
+    img: "/images/joud.webp",
     title: "Perfume Shop",
     likes: 280,
     desc: "Joud Perfumes Built With Nextjs and Node.js",
     link: "https://www.joudperfume.com",
   },
   {
-    img: "/images/todo1.png",
+    img: "/images/todo.webp",
     title: "ToDo_List",
     likes: 600,
     desc: "Fast & simple ToDo app with real-time Firebase sync",
     link: "https://shimanto-todo.vercel.app",
   },
   {
-    img: "/images/weather.jpg",
-    title: "Weather App",
+    img: "/images/shorturl.webp",
+    title: "Shortner App",
     likes: 630,
-    desc: "A responsive weather app built with React",
-    link: "https://react-weather-app-shimantos-projects.vercel.app/",
-  },
-  {
-    img: "/images/portfolio-06.jpg",
-    title: "Web Design",
-    likes: 690,
-    desc: "App for technology & services",
+    desc: "A responsive ShorturlApp app built with Mern",
+    link: "https://shortner.shimanto.dev/",
   },
 ];
 

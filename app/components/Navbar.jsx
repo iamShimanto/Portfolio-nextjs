@@ -17,7 +17,7 @@ const Navbar = () => {
       <nav className="px-11.25 py-4.5 flex items-center justify-between shadow-2xl bg-[#212428] sticky top-0 z-50">
         <Link href={"/"} className="flex items-center gap-1.5">
           <Image
-            src="/images/main.png"
+            src="/images/main.webp"
             width={50}
             height={50}
             className="rounded-full"

@@ -36,7 +36,7 @@ export const metadata = {
     siteName: "Shimanto Sarkar",
     images: [
       {
-        url: "https://shimanto.dev/images/main.png",
+        url: "https://shimanto.dev/images/main.webp",
         width: 1200,
         height: 630,
         alt: "Shimanto Sarkar Portfolio",
@@ -50,7 +50,7 @@ export const metadata = {
     title: "Shimanto Sarkar | Full Stack Developer",
     description:
       "Portfolio of Shimanto Sarkar — Next.js developer from Bangladesh.",
-    images: ["https://shimanto.dev/images/main.png"],
+    images: ["https://shimanto.dev/images/main.webp"],
   },
   robots: {
     index: true,
