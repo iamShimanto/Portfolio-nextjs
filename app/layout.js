@@ -79,32 +79,45 @@ export default function RootLayout({ children }) {
   };
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <Script
-          id="schema"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-        />
-      </head>
-      <body>
-        <Toaster position="top-right" reverseOrder={false} />
-        <Navbar />
-        {children}
-        <Analytics />
-        <Script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-JEVHP8E9R5"
-        />
-        <Script id="ga">
-          {`
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-JEVHP8E9R5');
-  `}
-        </Script>
-      </body>
-    </html>
+  <head>
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+
+    <Script
+      id="adsense"
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3058762526310605"
+      crossOrigin="anonymous"
+      strategy="afterInteractive"
+    />
+
+    <Script
+      id="schema"
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  </head>
+
+  <body>
+    <Toaster position="top-right" reverseOrder={false} />
+    <Navbar />
+    {children}
+    <Analytics />
+
+    <Script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-JEVHP8E9R5"
+    />
+
+    <Script id="ga">
+      {`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JEVHP8E9R5');
+      `}
+    </Script>
+  </body>
+</html>
+
   );
 }
