@@ -81,13 +81,8 @@ export default function RootLayout({ children }) {
     <html lang="en">
   <head>
     <link rel="icon" href="/favicon.ico" sizes="any" />
-
     <Script
-      id="adsense"
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3058762526310605"
-      crossOrigin="anonymous"
-      strategy="afterInteractive"
+      src="https://pl28710197.effectivegatecpm.com/a4/0a/26/a40a2641c71c8bbc14a99a6ec536c09d.js"
     />
 
     <Script
