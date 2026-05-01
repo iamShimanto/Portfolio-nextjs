@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>New Contact</title>
+    <style>
+      body { font-family: Inter, Arial, sans-serif; background:#f6f8fa; margin:0; padding:24px }
+      .card { max-width:700px; margin:0 auto; background:#ffffff; border-radius:12px; box-shadow:0 10px 30px rgba(22,27,34,0.08); overflow:hidden }
+      .header { padding:28px; background: linear-gradient(90deg,#4f46e5,#06b6d4); color:#fff }
+      .header h1 { margin:0; font-size:20px; letter-spacing:0.2px }
+      .content { padding:28px; color:#111827 }
+      .meta { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:16px }
+      .meta .item { background:#f3f4f6; padding:10px 12px; border-radius:8px; font-size:14px }
+      .message { background:#f9fafb; border-left:4px solid #e6e7f2; padding:16px; border-radius:8px; color:#374151 }
+      .footer { padding:20px 28px; font-size:13px; color:#6b7280; background:#fbfdff }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="header">
+        <h1>New Contact Submission</h1>
+      </div>
+      <div class="content">
+        <div class="meta">
+          <div class="item"><strong>Name:</strong>&nbsp;{{ name }}</div>
+          <div class="item"><strong>Email:</strong>&nbsp;{{ email }}</div>
+          <div class="item"><strong>Phone:</strong>&nbsp;{{ phone }}</div>
+        </div>
+        <div>
+          <p><strong>Message</strong></p>
+          <div class="message">{{ message }}</div>
+        </div>
+      </div>
+      <div class="footer">Open the admin panel to review and respond to this contact.</div>
+    </div>
+  </body>
+</html>

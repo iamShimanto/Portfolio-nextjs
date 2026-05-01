@@ -12,11 +12,11 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
 
-    "types": ["node"],
+    "types": ["node", "multer"],
     "lib": ["ES2020"],
 
     "sourceMap": true
   },
-  "include": ["**/*.ts"],
+  "include": ["**/*.ts", "**/*.d.ts"],
   "exclude": ["node_modules", "dist"]
 }

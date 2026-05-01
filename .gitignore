@@ -1,42 +1,84 @@
 # dependencies
 node_modules/
+.pnp/
+.pnp.js
 
-# build output
-dist/
-build/
-
-# logs
-logs/
-*.log
+# package managers
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+.pnpm-store/
 
 # env files
 .env
 .env.*
 !.env.example
-package-lock.json
-/server/backups
 
-# coverage
-coverage/
-*.lcov
-
-# caches
+# build outputs
+dist/
+build/
+out/
+.next/
+.vercel/
+.turbo/
 .cache/
-.tmp/
+.parcel-cache/
+
+# TypeScript
 *.tsbuildinfo
 
-# OS / editor
+# Prisma
+prisma/dev.db
+prisma/dev.db-journal
+prisma/migrations/migration_lock.toml
+
+# generated files
+generated/
+**/generated/
+**/generated/prisma/
+
+# logs
+logs/
+*.log
+
+# uploads / local files
+uploads/
+tmp/
+temp/
+
+# coverage / test output
+coverage/
+.nyc_output/
+
+# Docker
+docker-data/
+.docker/
+
+# OS files
 .DS_Store
 Thumbs.db
-.vscode/
-.idea/
 
-# optional: lockfiles you may or may not want ignored
-# (Usually keep ONE lockfile tracked, so don't ignore by default)
-# package-lock.json
-# yarn.lock
-# pnpm-lock.yaml
+# editor / IDE
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.swp
+*.swo
+
+# Linux/Kali misc
+*.pem
+*.key
+*.crt
+
+# local database files
+*.sqlite
+*.sqlite3
+*.db
+
+# misc
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
