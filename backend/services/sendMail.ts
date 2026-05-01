@@ -3,9 +3,9 @@ import Mail from "nodemailer/lib/mailer";
 import { env } from "../config/envConfig";
 
 const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST || "smtp.hostinger.com",
-  port: Number(process.env.SMTP_PORT || 587),
-  secure: process.env.SMTP_SECURE === "true" ? true : false,
+  host: env.SMTP_HOST,
+  port: Number(env.SMTP_PORT),
+  secure: env.SMTP_SECURE === "true" ? true : false,
   auth: {
     user: env.EMAIL_USER,
     pass: env.EMAIL_PASS,
