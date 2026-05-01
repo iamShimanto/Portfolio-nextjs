@@ -8,7 +8,7 @@ export const errorHandler = (
   next: NextFunction,
 ) => {
   let statusCode = 500;
-  let message = "Internal server error";
+  let message = err.message || "Internal server error";
 
   if (err instanceof ApiError) {
     statusCode = err.statusCode;

@@ -2,6 +2,7 @@ import { Router } from "express";
 import * as auth from "../../controllers/auth/auth.controller";
 import { asyncHandler } from "../../utils/asyncHandler";
 import { rateLimit } from "../../utils/rateLimit";
+import { authMiddleWare } from "../../middleware/auth.middleware";
 
 const router = Router();
 
@@ -12,7 +13,9 @@ router.post("/login", rateLimit({ limit: 5, windowSec: 15 * 60, keyPrefix: "rl:l
 // logout
 router.post("/logout", asyncHandler(auth.logout));
 // get current user
-router.get("/me", asyncHandler(auth.getMe));
+router.get("/me", authMiddleWare, asyncHandler(auth.getMe));
+// change password
+router.post("/change-password", authMiddleWare, asyncHandler(auth.changePassword));
 
 
 

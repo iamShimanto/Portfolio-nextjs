@@ -8,6 +8,7 @@ export const env = cleanEnv(process.env, {
   POSTGRE_SQL_URL: str(),
   EMAIL_USER: email(),
   EMAIL_PASS: str(),
+  ADMIN_EMAIL: email(),
   NODE_ENV: str({ choices: ["development", "production"] }),
   JWT_SECRET: str(),
   CLIENT_URL1: url(),
