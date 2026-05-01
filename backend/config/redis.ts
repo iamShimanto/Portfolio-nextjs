@@ -20,7 +20,7 @@ const createNoopRedis = () => {
 
 const redis = env.REDIS_URL
   ? new Redis(env.REDIS_URL, {
-      maxRetriesPerRequest: 3,
+      maxRetriesPerRequest: null,
       enableReadyCheck: true,
       lazyConnect: false,
 

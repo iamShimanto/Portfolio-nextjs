@@ -3,9 +3,10 @@ import { ApiError } from "../../utils/ApiError";
 import { prisma } from "../../config/prisma";
 import { successResponse } from "../../utils/successResponse";
 import { sendMail } from "../../services/sendMail";
-import { env } from "../../config/envConfig";
-import path from "path";
-import renderTemplate from "../../utils/templateRenderer";
+import {
+  enqueueContactNotificationEmails,
+  sendContactNotificationEmails,
+} from "../../services/contactMailQueue";
 
 export const createContact: RequestHandler = async (req, res) => {
   const { name, email, message, phone } = req.body;
@@ -19,48 +20,29 @@ export const createContact: RequestHandler = async (req, res) => {
       email,
       message,
       phone,
+      isRead: false,
     },
   });
 
-  // Render HTML templates (premium design)
-  const adminTemplatePath = path.join(
-    __dirname,
-    "../../templates/contact-admin.html",
-  );
-  const userTemplatePath = path.join(
-    __dirname,
-    "../../templates/contact-user.html",
-  );
-
-  const templateVars = {
+  const emailPayload = {
     name,
     email,
-    phone: phone || "N/A",
     message,
+    phone,
   };
 
-  try {
-    const [adminHtml, userHtml] = await Promise.all([
-      renderTemplate(adminTemplatePath, templateVars),
-      renderTemplate(userTemplatePath, templateVars),
-    ]);
+  // Fire-and-forget: queue email in background without blocking response
+  void (async () => {
+    try {
+      const queued = await enqueueContactNotificationEmails(emailPayload);
 
-    await Promise.all([
-      sendMail({
-        to: env.ADMIN_EMAIL,
-        subject: `New contact from ${name}`,
-        html: adminHtml,
-      }),
-      sendMail({
-        to: email,
-        subject: `Thanks for contacting us, ${name}`,
-        html: userHtml,
-      }),
-    ]);
-  } catch (err) {
-    // don't fail the request because email failed; log and continue
-    console.error("Failed to send contact emails", err);
-  }
+      if (!queued) {
+        await sendContactNotificationEmails(emailPayload);
+      }
+    } catch (err) {
+      console.error("Failed to queue contact emails", err);
+    }
+  })();
 
   successResponse(res, "Contact created successfully", 201);
 };
@@ -143,6 +125,69 @@ export const deleteContactById: RequestHandler = async (req, res) => {
   successResponse(res, "Contact deleted successfully", 200, contact);
 };
 
-export const replyContact: RequestHandler = async (req, res) => {};
+export const replyContact: RequestHandler = async (req, res) => {
+  const { id } = req.params;
+  const { message } = req.body;
+  const contactId = Number(id);
 
-export const markContactAsRead: RequestHandler = async (req, res) => {};
+  if (!Number.isInteger(contactId) || contactId <= 0) {
+    throw new ApiError(400, "Valid contact ID is required");
+  }
+  if (!message || typeof message !== "string") {
+    throw new ApiError(400, "Reply message is required");
+  }
+
+  const contact = await prisma.contact.findUnique({
+    where: {
+      id: contactId,
+    },
+  });
+  if (!contact) {
+    throw new ApiError(404, "Contact not found");
+  }
+
+  // Update isRead status immediately
+  await prisma.contact.update({
+    where: { id: contactId },
+    data: { isRead: true },
+  });
+
+  // Fire-and-forget: send reply email in background
+  void (async () => {
+    try {
+      await sendMail({
+        to: contact.email,
+        subject: `Reply to your message`,
+        text: message,
+      });
+    } catch (err) {
+      console.error("Failed to send reply email", err);
+    }
+  })();
+
+  successResponse(res, "Reply sent successfully", 200);
+};
+
+export const markContactAsRead: RequestHandler = async (req, res) => {
+  const { id } = req.params;
+  const contactId = Number(id);
+
+  if (!Number.isInteger(contactId) || contactId <= 0) {
+    throw new ApiError(400, "Valid contact ID is required");
+  }
+
+  const contact = await prisma.contact.findUnique({
+    where: { id: contactId },
+  });
+
+  if (!contact) {
+    throw new ApiError(404, "Contact not found");
+  }
+
+  const updatedContact = await prisma.contact.update({
+    where: { id: contactId },
+    data: { isRead: true },
+  });
+
+  successResponse(res, "Contact marked as read successfully", 200, updatedContact);
+};

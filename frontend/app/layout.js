@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Script from "next/script";
 import { Toaster } from "react-hot-toast";
 import { Analytics } from "@vercel/analytics/next";
+import { AuthProvider } from "./context/AuthContext";
 
 export const metadata = {
   metadataBase: new URL("https://shimanto.dev"),
@@ -79,41 +80,22 @@ export default function RootLayout({ children }) {
   };
   return (
     <html lang="en">
-  <head>
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-    <Script
-      src="https://pl28710197.effectivegatecpm.com/a4/0a/26/a40a2641c71c8bbc14a99a6ec536c09d.js"
-    />
-    <Script src="https://heypreceding.com/a4/0a/26/a40a2641c71c8bbc14a99a6ec536c09d.js" />
-    <Script
-      id="schema"
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-    />
-  </head>
-
-  <body>
-    <Toaster position="top-right" reverseOrder={false} />
-    <Navbar />
-    {children}
-    <Analytics />
-
-    <Script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-JEVHP8E9R5"
-    />
-    <Script async="async" data-cfasync="false" src="https://heypreceding.com/8c9dfeb1f01e4e20aaa31183f1bced1f/invoke.js" />
-    <div id="container-8c9dfeb1f01e4e20aaa31183f1bced1f"></div>
-    <Script id="ga">
-      {`
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-JEVHP8E9R5');
-      `}
-    </Script>
-  </body>
-</html>
-
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <Script
+          id="schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      </head>
+      <body>
+        <AuthProvider>
+          <Toaster position="top-right" reverseOrder={false} />
+          <Navbar />
+          {children}
+          <Analytics />
+        </AuthProvider>
+      </body>
+    </html>
   );
 }

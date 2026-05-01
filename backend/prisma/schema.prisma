@@ -32,6 +32,7 @@ model Contact {
   email     String
   phone     String
   message   String
+  isRead    Boolean     @default(false)
   createdAt DateTime    @default(now())
 }
 

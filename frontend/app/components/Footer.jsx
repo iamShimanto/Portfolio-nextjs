@@ -2,7 +2,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import toast from "react-hot-toast";
+import { showToast } from "@/app/components/ui/Toast";
+import { createContact } from "@/app/services/contact.service";
 import { FaFacebookF, FaGithub, FaLinkedinIn } from "react-icons/fa6";
 
 const Footer = () => {
@@ -19,29 +20,25 @@ const Footer = () => {
 
     try {
       setLoading(true);
-      const res = await fetch(
-        "https://api-shimanto-portfolio.vercel.app/api/message",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        }
-      );
+      // map local form keys to API payload (backend expects name, email, message, phone)
+      const payload = {
+        name: data.fullName,
+        email: data.email,
+        message: data.message,
+        phone: data.phone,
+      };
 
-      const result = await res.json();
-      if (result.success === true) {
-        toast.success(result.message);
-        setData({
-          fullName: "",
-          phone: "",
-          email: "",
-          message: "",
-        });
+      const result = await createContact(payload);
+
+      if (result?.success) {
+        showToast.success('Message sent', result.message || 'Thank you for contacting');
+        setData({ fullName: '', phone: '', email: '', message: '' });
+      } else {
+        showToast.error('Send failed', result?.message || 'Unable to send message');
       }
     } catch (error) {
-      console.log(error.message);
+      console.error(error);
+      showToast.error('Error', error?.message || 'Something went wrong');
     } finally {
       setLoading(false);
     }
@@ -52,7 +49,7 @@ const Footer = () => {
       <footer id="contact" className="mb-12">
         <div data-aos="fade-up" className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <p className="text-sm font-medium text-brand font-montserrat leading-[14px]">
+            <p className="text-sm font-medium text-brand font-montserrat leading-3.5">
               Contact
             </p>
             <h2 className="text-5xl font-bold font-montserrat text-primary leading-[72px] mt-3">
@@ -188,7 +185,11 @@ const Footer = () => {
                   ></textarea>
                 </div>
 
-                <button className="mt-10 w-full cursor-pointer py-4 flex justify-center items-center gap-2 text-brand uppercase text-sm font-medium font-poppins rounded-lg  bg-gradient-to-br from-[#1e2024] to-[#23272b] shadow-[10px_10px_19px_#1c1e22,-10px_-10px_19px_#262a2e] hover:-translate-y-2 hover:bg-black/10 transition-all duration-300">
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="mt-10 w-full py-4 flex justify-center items-center gap-2 text-brand uppercase text-sm font-medium font-poppins rounded-lg bg-gradient-to-br from-[#1e2024] to-[#23272b] shadow-[10px_10px_19px_#1c1e22,-10px_-10px_19px_#262a2e] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
                   {loading ? (
                     <>
                       <svg
