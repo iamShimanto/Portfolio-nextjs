@@ -19,7 +19,7 @@ app.use(
       env.CLIENT_URL2,
       env.CLIENT_URL3,
       env.CLIENT_URL4,
-    ],
+    ].filter(Boolean),
     credentials: true,
   }),
 );

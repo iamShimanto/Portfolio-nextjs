@@ -11,16 +11,14 @@ export const env = cleanEnv(process.env, {
   ADMIN_EMAIL: email(),
   NODE_ENV: str({ choices: ["development", "production"] }),
   JWT_SECRET: str(),
-  CLIENT_URL1: url(),
-  CLIENT_URL2: url(),
-  CLIENT_URL3: url(),
-  CLIENT_URL4: url(),
+  CLIENT_URL1: url({ default: "" }),
+  CLIENT_URL2: url({ default: "" }),
+  CLIENT_URL3: url({ default: "" }),
+  CLIENT_URL4: url({ default: "" }),
   CLOUDINARY_CLOUD_NAME: str(),
   CLOUDINARY_API_KEY: str(),
   CLOUDINARY_API_SECRET: str(),
   REDIS_HOST: str(),
   REDIS_PORT: port({ default: 6379 }),
-  REDIS_URL: str(),
+  REDIS_URL: str({ default: "" }),
 });
-
-
