@@ -9,10 +9,8 @@ import redis from "./config/redis";
 async function startServer() {
   try {
     await dbConfig();
-    console.log("MongoDb connencted Successfully");
 
     await redis.ping();
-    console.log("Redis connected Successfully");
 
     app.listen(env.PORT, () => {
       console.log(`Server running on http://localhost:${env.PORT}`);

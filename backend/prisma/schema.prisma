@@ -1,0 +1,52 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id      Int         @id @default(autoincrement())
+  name    String?
+  email   String      @unique
+  password String
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+}
+
+model Post {
+  id              Int         @id @default(autoincrement())
+  title           String
+  description     String
+  image           String
+  likes           Int         @default(0)
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+}
+
+model Contact {
+  id        Int         @id @default(autoincrement())
+  name      String
+  email     String
+  phone     String
+  message   String
+  createdAt DateTime    @default(now())
+}
+
+model Tech {
+  id            Int         @id @default(autoincrement())
+  logo          String
+  name          String
+  description   String
+  createdAt     DateTime    @default(now())
+}
+
+model Social {
+  id            Int         @id @default(autoincrement())
+  logo          String
+  name          String
+  url           String
+  createdAt     DateTime    @default(now())
+}
