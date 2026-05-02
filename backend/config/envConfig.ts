@@ -10,7 +10,7 @@ export const env = cleanEnv(process.env, {
   EMAIL_PASS: str(),
   ADMIN_EMAIL: email(),
   SMTP_HOST: str(),
-  SMTP_PORT: port({ default: 587 }),
+  SMTP_PORT: port({ default: 465 }),
   SMTP_SECURE: str({ choices: ["true", "false"] }),
   NODE_ENV: str({ choices: ["development", "production"] }),
   JWT_SECRET: str(),
