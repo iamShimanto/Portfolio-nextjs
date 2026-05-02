@@ -1,4 +1,5 @@
 import path from "path";
+import fs from "fs/promises";
 import { Queue, Worker } from "bullmq";
 import redis from "../config/redis";
 import { env } from "../config/envConfig";
@@ -48,20 +49,40 @@ const getTemplateVars = (payload: ContactMailPayload) => ({
   message: payload.message,
 });
 
-const getAdminTemplatePath = () =>
-  path.join(__dirname, "../templates/contact-admin.html");
+const resolveTemplatePath = async (templateFileName: string) => {
+  const candidatePaths = [
+    path.join(process.cwd(), "templates", templateFileName),
+    path.join(__dirname, "../templates", templateFileName),
+  ];
 
-const getUserTemplatePath = () =>
-  path.join(__dirname, "../templates/contact-user.html");
+  for (const candidatePath of candidatePaths) {
+    try {
+      await fs.access(candidatePath);
+      return candidatePath;
+    } catch {
+      continue;
+    }
+  }
+
+  throw new Error(`Template not found: ${templateFileName}`);
+};
+
+const getAdminTemplatePath = () => resolveTemplatePath("contact-admin.html");
+
+const getUserTemplatePath = () => resolveTemplatePath("contact-user.html");
 
 export const sendContactNotificationEmails = async (
   payload: ContactMailPayload,
 ) => {
   const templateVars = getTemplateVars(payload);
+  const [adminTemplatePath, userTemplatePath] = await Promise.all([
+    getAdminTemplatePath(),
+    getUserTemplatePath(),
+  ]);
 
   const [adminHtml, userHtml] = await Promise.all([
-    renderTemplate(getAdminTemplatePath(), templateVars),
-    renderTemplate(getUserTemplatePath(), templateVars),
+    renderTemplate(adminTemplatePath, templateVars),
+    renderTemplate(userTemplatePath, templateVars),
   ]);
 
   await Promise.all([

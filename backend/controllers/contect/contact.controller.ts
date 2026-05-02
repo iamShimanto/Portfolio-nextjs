@@ -35,7 +35,7 @@ export const createContact: RequestHandler = async (req, res) => {
   void (async () => {
     try {
       const queued = await enqueueContactNotificationEmails(emailPayload);
-
+      console.log("first", queued);
       if (!queued) {
         await sendContactNotificationEmails(emailPayload);
       }
