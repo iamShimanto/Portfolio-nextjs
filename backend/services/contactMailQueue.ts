@@ -144,6 +144,24 @@ export const startContactMailQueueWorker = async () => {
     console.error(`Contact mail job ${job?.id} failed: ${err.message}`);
   });
 
+  contactMailWorker.on("stalled", (job: any) => {
+    console.warn(`Contact mail job ${job?.id} stalled`);
+  });
+
+  contactMailWorker.on("error", (err: any) => {
+    console.error("Contact mail worker error:", err && err.message ? err.message : err);
+  });
+
+  contactMailWorker.on("active", (job: any) => {
+    console.log(`Contact mail job ${job?.id} is active`);
+  });
+
+  // 'waiting' is a Queue event (not Worker); skip attaching here to avoid type errors
+
+  contactMailWorker.on("drained", () => {
+    console.log("Contact mail queue drained (no waiting jobs)");
+  });
+
   console.log("Contact mail queue worker started");
 };
 
