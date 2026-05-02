@@ -85,18 +85,17 @@ export const sendContactNotificationEmails = async (
     renderTemplate(userTemplatePath, templateVars),
   ]);
 
-  await Promise.all([
-    sendMail({
-      to: env.ADMIN_EMAIL,
-      subject: `New contact from ${payload.name}`,
-      html: adminHtml,
-    }),
-    sendMail({
-      to: payload.email,
-      subject: `Thanks for contacting us, ${payload.name}`,
-      html: userHtml,
-    }),
-  ]);
+  await sendMail({
+    to: env.ADMIN_EMAIL,
+    subject: `New contact from ${payload.name}`,
+    html: adminHtml,
+  });
+
+  await sendMail({
+    to: payload.email,
+    subject: `Thanks for contacting us, ${payload.name}`,
+    html: userHtml,
+  });
 };
 
 export const enqueueContactNotificationEmails = async (
@@ -132,6 +131,8 @@ export const startContactMailQueueWorker = async () => {
     {
       connection: redis as any,
       concurrency: 2,
+      lockDuration: 120000,
+      stalledInterval: 60000,
     },
   );
 

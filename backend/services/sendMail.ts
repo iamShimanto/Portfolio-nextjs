@@ -10,6 +10,9 @@ const transporter = nodemailer.createTransport({
     user: env.EMAIL_USER,
     pass: env.EMAIL_PASS,
   },
+  connectionTimeout: 10000,
+  greetingTimeout: 10000,
+  socketTimeout: 20000,
 });
 
 export type SendMailOptions = {
