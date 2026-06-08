@@ -50,7 +50,7 @@ const ToastContent = ({ type, title, description, icon: CustomIcon }) => {
         <div
             className={`flex items-start gap-3 rounded-lg border ${config.bgColor} ${config.borderColor} px-4 py-3 shadow-lg`}
         >
-            <IconComponent className={`h-5 w-5 flex-shrink-0 ${config.iconColor} mt-0.5`} />
+            <IconComponent className={`h-5 w-5 shrink-0 ${config.iconColor} mt-0.5`} />
             <div className="flex-1">
                 {title && (
                     <p className={`text-sm font-semibold ${config.titleColor}`}>
@@ -70,7 +70,7 @@ const ToastContent = ({ type, title, description, icon: CustomIcon }) => {
 const PromiseToastContent = ({ title, description }) => {
     return (
         <div className="flex items-start gap-3 rounded-lg border border-blue-200 bg-blue-50 px-4 py-3 shadow-lg">
-            <FiLoader className="h-5 w-5 flex-shrink-0 animate-spin text-blue-600 mt-0.5" />
+            <FiLoader className="h-5 w-5 shrink-0 animate-spin text-blue-600 mt-0.5" />
             <div className="flex-1">
                 {title && (
                     <p className="text-sm font-semibold text-blue-900">
@@ -88,7 +88,7 @@ const PromiseToastContent = ({ title, description }) => {
 };
 
 export const showToast = {
-    success: (title = 'সফল', description = '', options = {}) => {
+    success: (title = 'Success', description = '', options = {}) => {
         const config = toastConfig.success;
         toast.custom(
             (t) => (
@@ -105,7 +105,7 @@ export const showToast = {
         );
     },
 
-    error: (title = 'ত্রুটি', description = '', options = {}) => {
+    error: (title = 'Error', description = '', options = {}) => {
         const config = toastConfig.error;
         toast.custom(
             (t) => (
@@ -122,7 +122,7 @@ export const showToast = {
         );
     },
 
-    info: (title = 'তথ্য', description = '', options = {}) => {
+    info: (title = 'Info', description = '', options = {}) => {
         const config = toastConfig.info;
         toast.custom(
             (t) => (
@@ -139,7 +139,7 @@ export const showToast = {
         );
     },
 
-    warning: (title = 'সতর্কতা', description = '', options = {}) => {
+    warning: (title = 'Warning', description = '', options = {}) => {
         const config = toastConfig.warning;
         toast.custom(
             (t) => (
@@ -159,9 +159,9 @@ export const showToast = {
     promise: (
         promise,
         {
-            loading = 'লোডিং হচ্ছে...',
-            success = 'সফল হয়েছে!',
-            error = 'ব্যর্থ হয়েছে',
+            loading = 'Loading...',
+            success = 'Success!',
+            error = 'Failed',
         } = {},
         options = {}
     ) => {
@@ -183,7 +183,7 @@ export const showToast = {
                 toast.dismiss(toastId);
                 const successMsg = typeof success === 'function' ? success(result) : success;
                 showToast.success(
-                    successMsg.title || 'সফল',
+                    successMsg.title || 'Success',
                     successMsg.description || '',
                     options
                 );
@@ -193,7 +193,7 @@ export const showToast = {
                 toast.dismiss(toastId);
                 const errorMsg = typeof error === 'function' ? error(err) : error;
                 showToast.error(
-                    errorMsg.title || 'ত্রুটি',
+                    errorMsg.title || 'Error',
                     errorMsg.description || err?.message || '',
                     options
                 );

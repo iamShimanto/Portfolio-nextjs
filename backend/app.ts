@@ -4,9 +4,11 @@ import routes from "./routes/index";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import morgan from "morgan";
+import dns from "dns";
 import { env } from "./config/envConfig";
 import { errorHandler } from "./middleware/errorHandler";
 
+dns.setServers(["1.1.1.1", "1.0.0.1"]);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.set("trust proxy", 1);

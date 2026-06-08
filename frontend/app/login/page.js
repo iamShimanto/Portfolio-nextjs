@@ -123,7 +123,7 @@ export default function AdminLoginPage() {
               disabled={isLoading}
               className="w-full rounded-xl bg-brand px-5 py-3 text-sm font-semibold cursor-pointer text-white shadow-lg shadow-brand/20 transition hover:bg-brand/90 focus:outline-none focus:ring-2 focus:ring-brand/40 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {isLoading ? "লগইন হচ্ছে..." : "Login as Admin"}
+              {isLoading ? "Logging in..." : "Login as Admin"}
             </button>
           </form>
         </div>

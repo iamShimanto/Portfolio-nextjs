@@ -28,7 +28,7 @@ const Banner = () => {
                   data-aos="fade-down"
                   className="title leading-15 text-4xl sm:text-6xl text-white "
                 >
-                  Hi, I’m <span className="!text-brand">Shimanto</span>
+                  Hi, I’m <span className="text-brand!">Shimanto</span>
                   <br />
                   <span className="header-caption" id="page-top">
                     <span className="cd-headline clip is-full-width flex items-center gap-3 mt-4">
@@ -100,7 +100,7 @@ const Banner = () => {
               className="card rounded-2xl h-[480px] sm:h-[650px] p-7.5 overflow-hidden"
             >
               <Image
-                src="/images/main.webp"
+                src="/images/shimanto.webp"
                 width={500}
                 height={400}
                 className="scale-110"
