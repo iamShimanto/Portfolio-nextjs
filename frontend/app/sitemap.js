@@ -2,7 +2,7 @@ export default function sitemap() {
   return [
     {
       url: "https://shimanto.dev",
-      lastModified: new Date(),
+      lastModified: "2025-06-01",
       changeFrequency: "monthly",
       priority: 1,
     },

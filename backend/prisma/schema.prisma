@@ -8,46 +8,89 @@ datasource db {
 }
 
 model User {
-  id      Int         @id @default(autoincrement())
-  name    String?
-  email   String      @unique
-  password String
-  createdAt DateTime   @default(now())
-  updatedAt DateTime   @updatedAt
+  id        Int      @id @default(autoincrement())
+  name      String?
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Profile {
+  id         Int      @id @default(autoincrement())
+  name       String
+  title      String
+  bio        String
+  roles      String[] // typed animation roles e.g. ["Developer", "Designer"]
+  avatarUrl  String?
+  resumeUrl  String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model Project {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  imageUrl    String
+  liveUrl     String?
+  githubUrl   String?
+  likes       Int      @default(0)
+  order       Int      @default(0)
+  isVisible   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Service {
+  id          Int      @id @default(autoincrement())
+  icon        String   // icon name string e.g. "FaBriefcase"
+  title       String
+  description String
+  order       Int      @default(0)
+  isVisible   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Tech {
+  id          Int      @id @default(autoincrement())
+  icon        String   // icon name string e.g. "SiNodedotjs"
+  iconColor   String   @default("#ffffff")
+  name        String
+  description String
+  order       Int      @default(0)
+  isVisible   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+}
+
+model Social {
+  id        Int      @id @default(autoincrement())
+  icon      String   // icon name string e.g. "FaGithub"
+  name      String
+  url       String
+  order     Int      @default(0)
+  isVisible Boolean  @default(true)
+  createdAt DateTime @default(now())
 }
 
 model Post {
-  id              Int         @id @default(autoincrement())
-  title           String
-  description     String
-  image           String
-  likes           Int         @default(0)
-  createdAt       DateTime    @default(now())
-  updatedAt       DateTime    @updatedAt
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  image       String
+  likes       Int      @default(0)
+  isVisible   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
 
 model Contact {
-  id        Int         @id @default(autoincrement())
+  id        Int      @id @default(autoincrement())
   name      String
   email     String
   phone     String
   message   String
-  isRead    Boolean     @default(false)
-  createdAt DateTime    @default(now())
-}
-
-model Tech {
-  id            Int         @id @default(autoincrement())
-  logo          String
-  name          String
-  description   String
-  createdAt     DateTime    @default(now())
-}
-
-model Social {
-  id            Int         @id @default(autoincrement())
-  logo          String
-  name          String
-  url           String
-  createdAt     DateTime    @default(now())
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
 }

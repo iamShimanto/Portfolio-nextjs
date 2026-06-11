@@ -1,19 +1,7 @@
-import nodemailer from "nodemailer";
-import Mail from "nodemailer/lib/mailer";
+import { Resend } from "resend";
 import { env } from "../config/envConfig";
 
-const transporter = nodemailer.createTransport({
-  host: env.SMTP_HOST,
-  port: Number(env.SMTP_PORT),
-  secure: env.SMTP_SECURE === "true" ? true : false,
-  auth: {
-    user: env.EMAIL_USER,
-    pass: env.EMAIL_PASS,
-  },
-  connectionTimeout: 10000,
-  greetingTimeout: 10000,
-  socketTimeout: 20000,
-});
+const resend = new Resend(env.RESEND_API_KEY);
 
 export type SendMailOptions = {
   to: string | string[];
@@ -24,29 +12,26 @@ export type SendMailOptions = {
 };
 
 export const sendMail = async (opts: SendMailOptions) => {
-  const mailOptions: Mail.Options = {
-    from: opts.from || `${env.EMAIL_USER}`,
-    to: opts.to,
-    subject: opts.subject,
-    html: opts.html,
-    text: opts.text,
-  };
+  const from = opts.from || env.EMAIL_FROM;
 
-  // basic retry
   const maxRetries = 2;
   let lastError: any = null;
   for (let attempt = 0; attempt <= maxRetries; attempt++) {
     try {
-      const info = await transporter.sendMail(mailOptions);
-      return info;
+      const { data, error } = await resend.emails.send({
+        from,
+        to: Array.isArray(opts.to) ? opts.to : [opts.to],
+        subject: opts.subject,
+        ...(opts.html ? { html: opts.html } : { text: opts.text ?? "" }),
+      });
+
+      if (error) throw error;
+      return data;
     } catch (err) {
       lastError = err;
-      // wait a bit before retrying
       await new Promise((r) => setTimeout(r, 200 * (attempt + 1)));
     }
   }
 
   throw lastError;
 };
-
-export default transporter;

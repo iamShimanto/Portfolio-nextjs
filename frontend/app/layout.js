@@ -1,19 +1,23 @@
 import "./globals.css";
-import Navbar from "./components/Navbar";
-import Script from "next/script";
+import ConditionalNavbar from "./components/ConditionalNavbar";
 import { Toaster } from "react-hot-toast";
 import { Analytics } from "@vercel/analytics/next";
 import { AuthProvider } from "./context/AuthContext";
 
 export const metadata = {
   metadataBase: new URL("https://shimanto.dev"),
-  title: "Shimanto – Full Stack MERN Developer | React, Node.js, MongoDB",
+  title: {
+    default: "Shimanto Sarkar – Full Stack Developer | Portfolio",
+    template: "%s | Shimanto Sarkar",
+  },
   description:
-    "I’m Shimanto Sarkar, a full stack web developer specializing in Next.js, Node.js, and MongoDB.",
+    "Portfolio of Shimanto Sarkar — Full Stack Web Developer specializing in Next.js, Node.js, and MongoDB.",
   keywords: [
     "Shimanto Sarkar",
     "Full Stack Developer",
-    "Next.js",
+    "Next.js Developer",
+    "Node.js Developer",
+    "MERN Stack",
     "Portfolio",
     "Web Developer Bangladesh",
     "iamshimanto",
@@ -29,30 +33,6 @@ export const metadata = {
   other: {
     "google-site-verification": "-tvqxNUbPqTjeZD-q8IhL7_Amgf4hfoJjJ7nRxOayG8",
   },
-  openGraph: {
-    title: "Shimanto – Full Stack MERN Developer | React, Node.js, MongoDB",
-    description:
-      "Portfolio of Shimanto Sarkar — Full Stack Web Developer from Bangladesh.",
-    url: "https://shimanto.dev",
-    siteName: "Shimanto Sarkar",
-    images: [
-      {
-        url: "https://shimanto.dev/images/main.webp",
-        width: 1200,
-        height: 630,
-        alt: "Shimanto Sarkar Portfolio",
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Shimanto Sarkar | Full Stack Developer",
-    description:
-      "Portfolio of Shimanto Sarkar — Next.js developer from Bangladesh.",
-    images: ["https://shimanto.dev/images/main.webp"],
-  },
   robots: {
     index: true,
     follow: true,
@@ -67,31 +47,15 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: "Shimanto Sarkar",
-    url: "https://shimanto.dev",
-    jobTitle: "Full Stack Developer",
-    sameAs: [
-      "https://www.linkedin.com/in/iam-shimanto",
-      "https://github.com/iamShimanto",
-    ],
-  };
   return (
     <html lang="en">
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <Script
-          id="schema"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-        />
       </head>
       <body>
         <AuthProvider>
           <Toaster position="top-right" reverseOrder={false} />
-          <Navbar />
+          <ConditionalNavbar />
           {children}
           <Analytics />
         </AuthProvider>

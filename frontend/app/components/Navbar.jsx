@@ -2,78 +2,84 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import CommonBtn from "./utils/CommonBtn";
 import { FaBarsStaggered } from "react-icons/fa6";
+import { useAuth } from "@/app/context/AuthContext";
+import { FiSettings } from "react-icons/fi";
+
+const NAV_LINKS = [
+  { href: "#iam",        label: "About"    },
+  { href: "#technology", label: "Skills"   },
+  { href: "#portfolio",  label: "Projects" },
+  { href: "#features",   label: "Services" },
+  { href: "#contact",    label: "Contact"  },
+];
 
 const Navbar = () => {
   const [show, setShow] = useState(false);
-
-  const handleClick = () => {
-    setShow(!show);
-  };
+  const { user } = useAuth();
 
   return (
     <>
-      <nav className="px-11.25 py-4.5 flex items-center justify-between shadow-2xl bg-[#212428] sticky top-0 z-50">
-        <Link href={"/"} className="flex items-center gap-1.5">
+      <nav aria-label="Main navigation" className="px-11.25 py-4.5 flex items-center justify-between shadow-2xl bg-[#212428] sticky top-0 z-50">
+        <Link href="/" className="flex items-center gap-1.5" aria-label="Shimanto Sarkar — Home">
           <Image
             src="/images/main.webp"
             width={50}
             height={50}
             className="rounded-full"
-            alt="logo"
+            alt="Shimanto Sarkar logo"
           />
-          <h3 className="text-white text-xl font-bold uppercase">Shimanto</h3>
+          <span className="text-white text-xl font-bold uppercase">Shimanto</span>
         </Link>
-        <div>
-          <ul className="lg:flex items-center gap-7.5 lg:gap-5 xl:gap-7.5 uppercase text-base font-medium lg:font-normal xl:font-medium text-primary hidden">
-            <li className="hover:text-brand duration-300">
-              <Link href="#iam">Iam</Link>
+
+        {/* Desktop nav */}
+        <ul className="lg:flex items-center gap-7.5 lg:gap-5 xl:gap-7.5 uppercase text-base font-medium lg:font-normal xl:font-medium text-primary hidden">
+          {NAV_LINKS.map((link) => (
+            <li key={link.href} className="hover:text-brand duration-300">
+              <Link href={link.href}>{link.label}</Link>
             </li>
-            <li className="hover:text-brand duration-300">
-              <Link href="#technology">My Experience</Link>
-            </li>
-            <li className="hover:text-brand duration-300">
-              <Link href="#portfolio">Portfolio</Link>
-            </li>
-            <li className="hover:text-brand duration-300">
-              <Link href="#contact">Contacts</Link>
-            </li>
+          ))}
+          <li>
+            <Link
+              href="/Shimanto_Sarkar_Resume.pdf"
+              download="Shimanto_Sarkar_Resume.pdf"
+              aria-label="Download Shimanto Sarkar Resume PDF"
+              className="py-3 px-3 sm:py-4.5 sm:px-9 w-fit shadow-sm shadow-slate-50 text-brand uppercase font-medium hover:bg-black hover:shadow-none commonBtn ease-in-out duration-300 rounded-lg card"
+            >
+              Resume
+            </Link>
+          </li>
+          {user && (
             <li>
-              <Link
-                href="/Shimanto_Sarkar_Resume.pdf"
-                download="Shimanto_Sarkar_Resume.pdf"
-                className="py-3 px-3 sm:py-4.5 sm:px-9 w-fit shadow-sm shadow-slate-50 text-brand uppercase font-medium hover:bg-black hover:shadow-none commonBtn ease-in-out duration-300 rounded-lg card"
-              >
-                Resume
+              <Link href="/admin" className="flex items-center gap-1.5 text-[#ff014f] hover:text-white transition duration-300">
+                <FiSettings className="text-lg" aria-hidden="true" />
+                <span className="text-sm">Admin</span>
               </Link>
             </li>
-          </ul>
-        </div>
+          )}
+        </ul>
 
+        {/* Mobile menu */}
         <div className="relative lg:hidden">
-          <FaBarsStaggered
-            className="text-3xl text-primary cursor-pointer"
-            onClick={handleClick}
-          />
+          <button
+            aria-label="Toggle navigation menu"
+            aria-expanded={show}
+            onClick={() => setShow(!show)}
+          >
+            <FaBarsStaggered className="text-3xl text-primary cursor-pointer" aria-hidden="true" />
+          </button>
           {show && (
-            <ul className="flex flex-col items-center gap-7.5 lg:gap-5 xl:gap-7.5 uppercase text-base font-medium lg:font-normal xl:font-medium text-primary absolute right-0 top-15 bg-gray-600 w-60 py-10 rounded-xl">
-              <li className="hover:text-brand duration-300">
-                <Link href="#iam">Iam</Link>
-              </li>
-              <li className="hover:text-brand duration-300">
-                <Link href="#technology">My Experience</Link>
-              </li>
-              <li className="hover:text-brand duration-300">
-                <Link href="#portfolio">Portfolio</Link>
-              </li>
-              <li className="hover:text-brand duration-300">
-                <Link href="#contact">Contacts</Link>
-              </li>
-              <li className="hidden lg:block">
+            <ul className="flex flex-col items-center gap-7.5 uppercase text-base font-medium text-primary absolute right-0 top-15 bg-gray-600 w-60 py-10 rounded-xl z-50">
+              {NAV_LINKS.map((link) => (
+                <li key={link.href} className="hover:text-brand duration-300">
+                  <Link href={link.href} onClick={() => setShow(false)}>{link.label}</Link>
+                </li>
+              ))}
+              <li>
                 <Link
                   href="/Shimanto_Sarkar_Resume.pdf"
                   download="Shimanto_Sarkar_Resume.pdf"
+                  aria-label="Download Resume PDF"
                   className="py-3 px-3 sm:py-4.5 sm:px-9 w-fit shadow-sm shadow-slate-50 text-brand uppercase font-medium hover:bg-black hover:shadow-none commonBtn ease-in-out duration-300 rounded-lg card"
                 >
                   Resume
